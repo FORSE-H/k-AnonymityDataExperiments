@@ -107,6 +107,7 @@ The dataset verifies:
    sensitive columns too.
 
 ## Alternative Approach # 1 using ```diffprivlib```
+Please note : This library is primarily intended for research.
 ```bash
 uv add diffprivlib "scikit-learn<1.9"
 ```
