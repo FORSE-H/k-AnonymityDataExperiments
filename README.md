@@ -106,6 +106,38 @@ The dataset verifies:
    rarely sufficient for a real release; check l-diversity/t-closeness on your
    sensitive columns too.
 
+## Alternative Approach 
+```bash
+uv add diffprivlib "scikit-learn<1.9"
+```
+Then run anonymize demo file:
+
+   ```bash
+ uv run python diffprivlib_demo.py
+ ```
+ Output
+
+```
+Original dataset:
+ age gender  zipcode disease
+  34   male    81667     flu
+  45 female    81675     flu
+  66   male    81925  cancer
+  70 female    81931     flu
+  34 female    81931  cancer
+  70   male    81931  cancer
+  45   male    81928     flu
+  34 female    81931  cancer
+
+--- Differentially private aggregate statistics (total epsilon=1.0) ---
+Cancer count   -> true:   4   DP:  11.81
+Flu count      -> true:   4   DP:   2.60
+Mean age       -> true:  49.75   DP:  27.48
+
+Epsilon spent: 1.000 (budget was 1.0)
+
+Note: no row-level data was ever generalized, suppressed, or published here - only noisy aggregate answers. That's the core difference from the anjana/k-anonymity approach: DP protects *queries*, not a released dataset. If you need to hand someone a CSV they can explore freely, DP alone doesn't give you that - you'd pair it with synthetic data generation, or fall back to k-anonymity/l-diversity.
+```
 ## Further reading
 
 - anjana paper (open access): *An Open Source Python Library for Anonymizing

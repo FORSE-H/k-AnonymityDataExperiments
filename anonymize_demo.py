@@ -19,14 +19,15 @@ from pycanon import anonymity, report
 
 # 1. Input dataset --------------------------------------------------------
 # age/gender/zipcode = quasi-identifiers, disease = sensitive attribute
-data = pd.DataFrame(
-    {
-        "age": [34, 45, 66, 70, 34, 70, 45, 34],
-        "gender": ["male", "female", "male", "female", "female", "male", "male", "female"],
-        "zipcode": [81667, 81675, 81925, 81931, 81931, 81931, 81928, 81931],
-        "disease": ["flu", "flu", "cancer", "flu", "cancer", "cancer", "flu", "cancer"],
-    }
-)
+#data = pd.DataFrame(
+#    {
+#        "age": [34, 45, 66, 70, 34, 70, 45, 34],
+#        "gender": ["male", "female", "male", "female", "female", "male", "male", "female"],
+#        "zipcode": [81667, 81675, 81925, 81931, 81931, 81931, 81928, 81931],
+#        "disease": ["flu", "flu", "cancer", "flu", "cancer", "cancer", "flu", "cancer"],
+ #   }
+#)
+data = pd.read_csv("input_data/patient_data.csv")
 
 # 2. Generalization hierarchies --------------------------------------------
 # Loaded from CSV. Column 0 = original value, each subsequent column is a
