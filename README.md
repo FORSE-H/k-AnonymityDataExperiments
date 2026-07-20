@@ -94,7 +94,7 @@ The dataset verifies:
   library computing k-anonymity, l-diversity, t-closeness, and several other
   metrics from scratch — instead of just trusting anjana's own claim.
 
-  ## Adapting to your own data
+## Adapting to your own data
 
 1. Swap the `data = pd.DataFrame(...)` block for `pd.read_csv("your_file.csv")`.
 2. Write one hierarchy CSV per quasi-identifier: column 0 = the exact original
@@ -112,6 +112,6 @@ The dataset verifies:
   Sensitive Data*, Scientific Data (2024/2025) — https://www.nature.com/articles/s41597-024-04019-z
 - pycanon paper: *A Python library to check the level of anonymity of a
   dataset*, Scientific Data (2022) — https://www.nature.com/articles/s41597-022-01894-2
-  - Exposing Privacy Risks in Anonymizing Clinical Data:
+- Exposing Privacy Risks in Anonymizing Clinical Data:
 Combinatorial Refinement Attacks on k-Anonymity Without
 Auxiliary Information https://arxiv.org/pdf/2509.03350, https://www.youtube.com/watch?v=pHeXFVl9NgE
