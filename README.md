@@ -227,6 +227,93 @@ python smartnoisesql_demo.py
 [['mean_age'], [34.49513909991469]]
 cumulative privacy spent (epsilon, delta): (np.float64(6.0), np.float64(0.001499499999999987))
 ```
+## Alternative Approach # 4 using ```MOSTLY AI```
+
+
+```bash
+uv add "mostlyai
+
+```
+Then run anonymize demo file:
+
+   ```bash
+uv run python mostlyai_demo.py
+ ```
+ Output
+
+```
+Original dataset (n=60):
+ age gender  zipcode disease
+  25 female    81925     flu
+  70 female    81931     flu
+  62   male    81931  cancer
+  48 female    81925     flu
+  48   male    81928  cancer
+  75   male    81925     flu
+  25 female    81667     flu
+  65   male    81931  cancer
+...
+
+True disease split: {'flu': np.int64(37), 'cancer': np.int64(23)}
+True mean age: 53.7
+
+======================================================================
+STEP 1: value_protection=False (no protection)
+======================================================================
+ age gender  zipcode disease
+  66   male    81925     flu
+  69 female    81925     flu
+  52 female    81931     flu
+  70 female    81928  cancer
+  61   male    81667  cancer
+  55 female    81667     flu
+  46   male    81667  cancer
+  46   male    81667  cancer
+
+Synthetic disease split: {'flu': np.int64(39), 'cancer': np.int64(21)}
+Synthetic mean age: 54.7
+
+======================================================================
+STEP 2: value_protection=True (default - heuristic protection)
+======================================================================
+ age gender  zipcode disease
+  46   male    81667  cancer
+  28   male    81931     flu
+  64 female    81667     flu
+  28   male    81667  cancer
+  74 female    81928     flu
+  68 female    81667     flu
+  37 female    81931     flu
+  59 female    81928     flu
+
+Synthetic disease split: {'flu': np.int64(49), 'cancer': np.int64(11)}
+Synthetic mean age: 51.4
+
+======================================================================
+STEP 3: differential_privacy=... (formal epsilon guarantee)
+======================================================================
+ age gender  zipcode disease
+   8 female    81931     flu
+   2 female    81925  cancer
+   9   male    81928  cancer
+   8 female    81928     flu
+   7 female    81925  cancer
+   7   male    81925  cancer
+   2   male    81931  cancer
+   7 female    81925     flu
+
+Synthetic disease split: {'cancer': np.int64(32), 'flu': np.int64(28)}
+Synthetic mean age: 5.0
+
+(if 'age' looks like small integers instead of realistic ages here, that's the DP noise dominating a small/short training run - see the warning in the comments above)
+
+======================================================================
+SUMMARY: mean age and disease split across all three settings
+======================================================================
+                               true_data        step1_no_protection              step2_default                   step3_dp
+mean_age                       53.683333                       54.7                  51.433333                   4.966667
+disease_split  {'flu': 37, 'cancer': 23}  {'flu': 39, 'cancer': 21}  {'flu': 49, 'cancer': 11}  {'cancer': 32, 'flu': 28}
+```
 
 ## Further reading
 
