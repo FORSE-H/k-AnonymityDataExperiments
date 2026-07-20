@@ -231,7 +231,7 @@ cumulative privacy spent (epsilon, delta): (np.float64(6.0), np.float64(0.001499
 
 
 ```bash
-uv add "mostlyai
+uv add mostlyai
 
 ```
 Then run anonymize demo file:
