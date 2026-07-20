@@ -19,7 +19,7 @@ Then run anonymize demo file:
    ```
 Output
 
-    ```
+```
 
    Original dataset:
  age gender  zipcode disease
@@ -83,7 +83,7 @@ The dataset verifies:
                  - enhanced beta-likeness with beta = 0.33333333333333326
                  - t-closeness with t = 0.16666666666666666
                  - delta-disclosure privacy with delta = 0.40546510810816444
-   ```
+```
 
 ## What it does
 
