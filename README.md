@@ -17,8 +17,9 @@ Then run anonymize demo file:
    ```bash
    uv run python anonymize_demo.py 
    ```
+Output
 
-    ```Output
+    ```
 
    Original dataset:
  age gender  zipcode disease
