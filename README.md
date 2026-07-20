@@ -206,6 +206,27 @@ clamped to (0,100):  100.00   <- noise can push the raw value outside physically
 This is the actual point of pre-declaring your budget: you can't just decide to ask 'one more thing' after seeing the results without it being a deliberate, tracked decision.
 
 ```
+## Alternative Approach # 3 using ```snsql```
+
+***  smartnoise-sql is stuck on an old, pinned opendp version and hasn't been updated to track OpenDP's current releases.  Neeed a new isolated wnvironment to run. ***
+
+```bash
+uv add smartnoise-sql
+
+```
+Then run anonymize demo file:
+
+   ```bash
+ uv run python smartnoisesql_demo.py
+ ```
+ Output
+
+```
+python smartnoisesql_demo.py
+[['disease', 'n'], ['cancer', 3], ['flu', 3]]
+[['mean_age'], [34.49513909991469]]
+cumulative privacy spent (epsilon, delta): (np.float64(6.0), np.float64(0.001499499999999987))
+```
 
 ## Further reading
 
